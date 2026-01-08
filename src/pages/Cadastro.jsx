@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
 import CadastroIllustration from '../components/illustrations/CadastroIllustration';
+import ThemeToggle from '../components/ThemeToggle';
 import { FiUserPlus } from 'react-icons/fi';
 
 const Cadastro = () => {
@@ -36,6 +37,7 @@ const Cadastro = () => {
       <Card>
         <CadastroIllustration className={styles.authHero} />
         <h2><FiUserPlus style={{ verticalAlign: 'middle', marginRight: 8 }} />Criar Conta</h2>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}><ThemeToggle /></div>
         <form onSubmit={handleSubmit}>
           <Input
             type="email"

@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Questionario.module.css';
 import QuestionIllustration from '../components/illustrations/QuestionIllustration';
+import ThemeToggle from '../components/ThemeToggle';
 import { FiClipboard } from 'react-icons/fi';
 
 const questions = [
@@ -41,6 +42,7 @@ const Questionario = () => {
           <div className={styles.bar} style={{ width: `${progress}%` }}></div>
         </div>
         <h2><FiClipboard style={{ verticalAlign: 'middle', marginRight: 8 }} />{questions[currentStep].question}</h2>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}><ThemeToggle /></div>
         <div className={styles.options}>
           {questions[currentStep].options.map((option) => (
             <Button key={option} onClick={() => handleAnswer(option)}>

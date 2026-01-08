@@ -27,20 +27,35 @@ function contrastRatio(hex1, hex2) {
 }
 
 const colors = {
+  /* light theme */
   salmon: '#fa8072',
   salmon_light: '#fff0ee',
   salmon_dark: '#8f3b2e',
   color_on_salmon: '#2b1b17',
   white: '#ffffff',
-  black: '#000000'
+  black: '#000000',
+  /* dark theme */
+  salmon_dark_dark: '#ff6a45',
+  salmon_dark_bg: '#1b1211',
+  color_on_salmon_dark: '#0f0b0a',
+  bg_dark: '#0b0f12',
+  text_dark: '#f9f6f3'
 };
 
 const pairs = [
-  { a: 'salmon_dark', b: 'salmon_light', usage: 'texto (salmon_dark) sobre fundo (salmon_light)' },
-  { a: 'color_on_salmon', b: 'salmon', usage: 'texto escuro sobre botão (salmon)' },
-  { a: 'white', b: 'salmon_dark', usage: 'texto branco sobre salmão escuro' },
-  { a: 'salmon_dark', b: 'white', usage: 'texto (salmon_dark) sobre fundo branco' },
-  { a: 'salmon_dark', b: 'salmon_light', usage: 'link/elemento salmão escuro sobre fundo claro' }
+  /* light theme checks */
+  { a: 'salmon_dark', b: 'salmon_light', usage: 'texto (salmon_dark) sobre fundo (salmon_light) - light' },
+  { a: 'color_on_salmon', b: 'salmon', usage: 'texto escuro sobre botão (salmon) - light' },
+  { a: 'white', b: 'salmon_dark', usage: 'texto branco sobre salmão escuro - light' },
+  { a: 'salmon_dark', b: 'white', usage: 'texto (salmon_dark) sobre fundo branco - light' },
+
+  /* dark theme checks */
+  { a: 'salmon_dark', b: 'salmon_dark_bg', usage: 'texto (salmon_dark) sobre fundo salmão escuro - dark' },
+  { a: 'white', b: 'bg_dark', usage: 'texto branco sobre fundo escuro - dark' },
+  { a: 'text_dark', b: 'bg_dark', usage: 'texto claro sobre fundo escuro - dark' },
+  { a: 'color_on_salmon_dark', b: 'salmon_dark', usage: 'texto escuro sobre botão (salmon) - dark' },
+  { a: 'white', b: 'salmon_dark', usage: 'texto claro sobre botão (salmon) - dark' },
+  { a: 'white', b: 'salmon_dark', usage: 'texto claro sobre botão (salmon) - dark' }
 ];
 
 console.log('Verificando contraste (WCAG) das cores principais:\n');

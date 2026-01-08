@@ -2,17 +2,39 @@
   font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  /* Core palette */
   --color-salmon: #fa8072; /* Salmão */
   --color-salmon-light: #fff0ee; /* Salmão claro */
   --color-salmon-dark: #8f3b2e; /* Salmão escuro (ajustado para contraste) */
   --color-on-salmon: #2b1b17; /* Texto escuro usado sobre botões salmão */
-  color: var(--color-salmon-dark);
-  background-color: var(--color-salmon-light);
+
+  /* System colors */
+  --bg: var(--color-salmon-light);
+  --text: var(--color-salmon-dark);
+  --surface: #ffffff;
+  --muted: #666;
+
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.appHeader {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 12px 20px;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 60;
 }
 
 h1, h2, h3 {
@@ -31,6 +53,20 @@ a:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Dark theme overrides (applied via [data-theme="dark"]) */
+
+[data-theme="dark"] {
+  --color-salmon: #ff957d;
+  --color-salmon-light: #1b1211;
+  --color-salmon-dark: #ff6a45;
+  --color-on-salmon: #ffffff; /* usar texto claro sobre botões salmão no modo escuro */
+
+  --bg: #0b0f12;
+  --text: #f9f6f3;
+  --surface: #0f1719;
+  --muted: #bdbdbd;
 }
 
 @media (prefers-color-scheme: light) {

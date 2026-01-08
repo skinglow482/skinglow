@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
 import LoginIllustration from '../components/illustrations/LoginIllustration';
+import ThemeToggle from '../components/ThemeToggle';
 import { FiUser } from 'react-icons/fi';
 
 const Login = () => {
@@ -33,6 +34,7 @@ const Login = () => {
       <Card>
         <LoginIllustration className={styles.authHero} />
         <h2><FiUser style={{ verticalAlign: 'middle', marginRight: 8 }} />Login</h2>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}><ThemeToggle /></div>
         <form onSubmit={handleSubmit}>
           <Input
             type="email"

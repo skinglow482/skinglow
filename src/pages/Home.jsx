@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import styles from '../styles/Home.module.css';
 import HeroIllustration from '../components/illustrations/HeroIllustration';
+import ThemeToggle from '../components/ThemeToggle';
 import { FiChevronRight, FiHeart, FiShoppingBag, FiTrendingUp } from 'react-icons/fi';
 
 const Home = () => {
@@ -13,6 +14,10 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
+      <header className={"appHeader " + styles.headerBar}>
+        <div>SkinGlow</div>
+        <ThemeToggle />
+      </header>
       <HeroIllustration className={styles.hero} />
       <motion.h1
         initial={{ y: -50 }}

@@ -43,7 +43,13 @@ Um aplicativo web moderno e feminino para auxiliar mulheres no cuidado com a pel
 ## Acessibilidade / Contraste
 
 - Ajustei a paleta para melhorar contraste WCAG: `--color-salmon-dark` foi escurecida e agora **passa** os requisitos AA (4.5:1) para texto normal em fundos claros.
-- Botões agora usam `--color-on-salmon` (texto escuro) para garantir legibilidade sobre o fundo salmão.
-- Há um script de verificação simples em `scripts/contrast-check.js` que você pode rodar localmente para validar combinações de cores.
+- Botões agora usam `--color-on-salmon` (texto adequado ao modo) para garantir legibilidade sobre o fundo salmão.
+- Há um script de verificação simples em `scripts/contrast-check.js` que você pode rodar localmente para validar combinações de cores (inclui checks para modo claro e escuro).
+
+## Temas
+
+- Adicionei suporte a **modo claro** e **modo escuro**. Use o botão de alternância (ícone de sol/lua) no cabeçalho para alternar.
+- O tema selecionado é persistido em `localStorage` (chave `theme`) e aplicado automaticamente.
+- Variáveis principais no CSS: `--bg`, `--text`, `--color-salmon`, `--color-salmon-dark`, `--color-on-salmon`.
 
 > Observação: se for trabalhar nas ilustrações, prefira editar os componentes em `src/components/illustrations/` para manter a consistência com o projeto.

@@ -5,6 +5,7 @@ import { products } from '../data/products';
 import Card from '../components/Card';
 import styles from '../styles/Resultado.module.css';
 import HeroIllustration from '../components/illustrations/HeroIllustration';
+import ThemeToggle from '../components/ThemeToggle';
 import { FiFilter, FiPlusCircle, FiDroplet, FiSun } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -50,8 +51,13 @@ const Resultado = () => {
     <div className={styles.resultado}>
       <Card IllustrationComponent={HeroIllustration}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-          <h2>Seu Tipo de Pele: {skinType}</h2>
-          <p>Baseado nas suas respostas, recomendamos a seguinte rotina:</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <h2>Seu Tipo de Pele: {skinType}</h2>
+              <p>Baseado nas suas respostas, recomendamos a seguinte rotina:</p>
+            </div>
+            <ThemeToggle />
+          </div>
 
           <div className={styles.tableWrap}>
             <table className={styles.routineTable}>
