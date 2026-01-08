@@ -1,0 +1,15 @@
+.home {
+  text-align: center;
+  padding: 50px;
+  background-color: #fce4ec; /* Fundo rosa claro */
+  min-height: 100vh;
+  color: #4a148c; /* Lilás escuro */
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.buttons a {
+  margin: 0 10px;
+}
