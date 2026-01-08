@@ -6,6 +6,7 @@ import styles from '../styles/Questionario.module.css';
 import QuestionIllustration from '../components/illustrations/QuestionIllustration';
 import ThemeToggle from '../components/ThemeToggle';
 import { FiClipboard } from 'react-icons/fi';
+import { supabase } from '../services/supabase.js';
 
 const questions = [
   { key: 'tipoPele', question: 'Qual é o seu tipo de pele?', options: ['seca', 'oleosa', 'mista', 'sensivel'] },
@@ -21,15 +22,50 @@ const Questionario = () => {
   const [answers, setAnswers] = useState({});
   const navigate = useNavigate();
 
-  const handleAnswer = (answer) => {
+  const handleAnswer = async (answer) => {
     setAnswers({ ...answers, [questions[currentStep].key]: answer });
     if (currentStep < questions.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Finalizar e navegar para resultado
-      localStorage.setItem('skinAnswers', JSON.stringify(answers));
-      navigate('/resultado');
-    }
+  const finalAnswers = {
+    ...answers,
+    [questions[currentStep].key]: answer,
+  };
+
+  // opcional: manter no localStorage
+  localStorage.setItem('skinAnswers', JSON.stringify(finalAnswers));
+
+  // 🔐 pegar usuária logada
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
+
+  if (userError || !user) {
+    alert('Usuária não autenticada');
+    return;
+  }
+
+  // 💾 salvar no Supabase
+  const { error } = await supabase.from('perfil_pele1').upsert({
+    id: user.id,
+    tipo_pele: finalAnswers.tipoPele,
+    acne: finalAnswers.acne,
+    manchas: finalAnswers.manchas,
+    sensibilidade: finalAnswers.sensibilidade,
+    rotina: finalAnswers.rotina,
+    idade: finalAnswers.idade,
+  });
+
+  if (error) {
+    console.error(error);
+    alert('Erro ao salvar suas respostas');
+    return;
+  }
+
+  // 🚀 ir para o resultado
+  navigate('/resultado');
+}
   };
 
   const progress = ((currentStep + 1) / questions.length) * 100;
