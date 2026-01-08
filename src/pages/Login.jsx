@@ -5,7 +5,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
-import heroLogin from '../assets/login-illustration.svg';
+import LoginIllustration from '../components/illustrations/LoginIllustration';
 import { FiUser } from 'react-icons/fi';
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div className={styles.auth}>
       <Card>
-        <img src={heroLogin} alt="Login" className={styles.authHero} />
+        <LoginIllustration className={styles.authHero} />
         <h2><FiUser style={{ verticalAlign: 'middle', marginRight: 8 }} />Login</h2>
         <form onSubmit={handleSubmit}>
           <Input

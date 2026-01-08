@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import styles from '../styles/Home.module.css';
-import hero from '../assets/hero-salmon.svg';
+import HeroIllustration from '../components/illustrations/HeroIllustration';
 import { FiChevronRight, FiHeart, FiShoppingBag, FiTrendingUp } from 'react-icons/fi';
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <img src={hero} alt="SkinGlow" className={styles.hero} />
+      <HeroIllustration className={styles.hero} />
       <motion.h1
         initial={{ y: -50 }}
         animate={{ y: 0 }}

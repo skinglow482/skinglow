@@ -1,0 +1,12 @@
+const LoginIllustration = ({ className }) => (
+  <svg className={className} width="400" height="220" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de login">
+    <rect width="400" height="220" rx="16" fill="#fff0ee"/>
+    <g transform="translate(24,24)">
+      <circle cx="60" cy="60" r="50" fill="#fa8072" opacity="0.12" />
+      <rect x="140" y="28" width="200" height="140" rx="12" fill="#fa8072" opacity="0.06" />
+      <text x="16" y="150" fill="#c75a47" fontSize="20" fontFamily="Poppins, Arial, sans-serif">Login · SkinGlow</text>
+    </g>
+  </svg>
+);
+
+export default LoginIllustration;

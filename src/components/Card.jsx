@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import styles from '../styles/Card.module.css';
 
-const Card = ({ children, image, imageAlt = 'Ilustração SkinGlow' }) => {
+const Card = ({ children, image, imageAlt = 'Ilustração SkinGlow', IllustrationComponent }) => {
   const [imgOk, setImgOk] = useState(true);
 
   return (
     <div className={styles.card}>
-      {image && imgOk && (
+      {IllustrationComponent && (
+        <div className={styles.cardImageWrapper}>
+          <IllustrationComponent className={styles.cardImage} />
+        </div>
+      )}
+
+      {image && imgOk && !IllustrationComponent && (
         <img
           src={image}
           alt={imageAlt}
@@ -15,7 +21,7 @@ const Card = ({ children, image, imageAlt = 'Ilustração SkinGlow' }) => {
           onError={() => setImgOk(false)}
         />
       )}
-      {image && !imgOk && (
+      {image && !imgOk && !IllustrationComponent && (
         <div className={styles.cardImagePlaceholder}>
           <div>
             Ilustração indisponível

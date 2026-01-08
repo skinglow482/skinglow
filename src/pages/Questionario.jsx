@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Questionario.module.css';
-import heroQuestion from '../assets/question-illustration.svg';
+import QuestionIllustration from '../components/illustrations/QuestionIllustration';
 import { FiClipboard } from 'react-icons/fi';
 
 const questions = [
@@ -36,7 +36,7 @@ const Questionario = () => {
   return (
     <div className={styles.questionario}>
       <Card>
-        <img src={heroQuestion} alt="Questionário" className={styles.questionHero} />
+        <QuestionIllustration className={styles.questionHero} />
         <div className={styles.progress}>
           <div className={styles.bar} style={{ width: `${progress}%` }}></div>
         </div>

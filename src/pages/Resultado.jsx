@@ -4,7 +4,7 @@ import { routines } from '../data/routines';
 import { products } from '../data/products';
 import Card from '../components/Card';
 import styles from '../styles/Resultado.module.css';
-import hero from '../assets/hero-salmon.svg';
+import HeroIllustration from '../components/illustrations/HeroIllustration';
 import { FiFilter, FiPlusCircle, FiDroplet, FiSun } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -48,7 +48,7 @@ const Resultado = () => {
 
   return (
     <div className={styles.resultado}>
-      <Card image={hero}>
+      <Card IllustrationComponent={HeroIllustration}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <h2>Seu Tipo de Pele: {skinType}</h2>
           <p>Baseado nas suas respostas, recomendamos a seguinte rotina:</p>

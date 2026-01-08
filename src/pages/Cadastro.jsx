@@ -5,7 +5,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
-import heroCadastro from '../assets/cadastro-illustration.svg';
+import CadastroIllustration from '../components/illustrations/CadastroIllustration';
 import { FiUserPlus } from 'react-icons/fi';
 
 const Cadastro = () => {
@@ -34,7 +34,7 @@ const Cadastro = () => {
   return (
     <div className={styles.auth}>
       <Card>
-        <img src={heroCadastro} alt="Cadastro" className={styles.authHero} />
+        <CadastroIllustration className={styles.authHero} />
         <h2><FiUserPlus style={{ verticalAlign: 'middle', marginRight: 8 }} />Criar Conta</h2>
         <form onSubmit={handleSubmit}>
           <Input
