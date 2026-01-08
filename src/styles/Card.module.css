@@ -15,3 +15,27 @@
   border-radius: 8px;
   margin-bottom: 12px;
 }
+
+.cardImagePlaceholder {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(250,128,114,0.03), rgba(0,0,0,0.02));
+  color: #c75a47;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+}
+
+.placeholderSrc {
+  margin-top: 8px;
+  opacity: 0.7;
+  font-weight: 400;
+  color: #8d5b52;
+  word-break: break-all;
+  font-size: 12px;
+}
