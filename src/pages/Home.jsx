@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import styles from '../styles/Home.module.css';
 import hero from '../assets/hero-salmon.svg';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiHeart, FiShoppingBag, FiTrendingUp } from 'react-icons/fi';
 
 const Home = () => {
   return (
@@ -47,6 +47,24 @@ const Home = () => {
         <Link to="/cadastro">
           <Button>Criar Conta <FiChevronRight className={styles.icon} /></Button>
         </Link>
+      </motion.div>
+
+      <motion.div className={styles.features} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}>
+        <div className={styles.feature}>
+          <FiHeart size={22} className={styles.featureIcon} />
+          <h4>Rotina personalizada</h4>
+          <p>Recomendações feitas para sua pele.</p>
+        </div>
+        <div className={styles.feature}>
+          <FiShoppingBag size={22} className={styles.featureIcon} />
+          <h4>Produtos selecionados</h4>
+          <p>Sugestões de marcas e descrições.</p>
+        </div>
+        <div className={styles.feature}>
+          <FiTrendingUp size={22} className={styles.featureIcon} />
+          <h4>Acompanhamento</h4>
+          <p>Veja evolução e dicas ao longo do tempo.</p>
+        </div>
       </motion.div>
     </motion.div>
   );

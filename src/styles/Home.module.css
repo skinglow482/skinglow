@@ -1,13 +1,24 @@
 .home {
   text-align: center;
-  padding: 50px;
-  background-color: var(--color-salmon-light); /* Fundo salmão claro */
+  padding: 64px 20px;
+  background: linear-gradient(180deg, var(--color-salmon-light), #fffaf7);
   min-height: 100vh;
-  color: var(--color-salmon-dark); /* Salmão escuro */
+  color: var(--color-salmon-dark);
+}
+
+.home h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.home p {
+  font-size: 16px;
+  margin: 6px 0 18px;
 }
 
 .buttons {
-  margin-top: 30px;
+  margin-top: 18px;
 }
 
 .buttons a {
@@ -15,12 +26,48 @@
 }
 
 .hero {
-  width: 320px;
-  max-width: 80%;
+  width: 360px;
+  max-width: 88%;
   margin: 0 auto 20px;
   display: block;
 }
 
 .icon {
   vertical-align: middle;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.feature {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  text-align: left;
+}
+
+.featureIcon {
+  color: var(--color-salmon);
+  margin-bottom: 8px;
+}
+
+.feature h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 850px) {
+  .features { grid-template-columns: 1fr; }
 }
