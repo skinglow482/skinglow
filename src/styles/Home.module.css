@@ -30,6 +30,13 @@
   max-width: 88%;
   margin: 0 auto 20px;
   display: block;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
 .icon {

@@ -50,21 +50,21 @@ const Home = () => {
       </motion.div>
 
       <motion.div className={styles.features} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}>
-        <div className={styles.feature}>
+        <motion.div className={styles.feature} whileHover={{ scale: 1.03, y: -6 }} whileTap={{ scale: 0.99 }} transition={{ duration: 0.18 }}>
           <FiHeart size={22} className={styles.featureIcon} />
           <h4>Rotina personalizada</h4>
           <p>Recomendações feitas para sua pele.</p>
-        </div>
-        <div className={styles.feature}>
+        </motion.div>
+        <motion.div className={styles.feature} whileHover={{ scale: 1.03, y: -6 }} whileTap={{ scale: 0.99 }} transition={{ duration: 0.18 }}>
           <FiShoppingBag size={22} className={styles.featureIcon} />
           <h4>Produtos selecionados</h4>
           <p>Sugestões de marcas e descrições.</p>
-        </div>
-        <div className={styles.feature}>
+        </motion.div>
+        <motion.div className={styles.feature} whileHover={{ scale: 1.03, y: -6 }} whileTap={{ scale: 0.99 }} transition={{ duration: 0.18 }}>
           <FiTrendingUp size={22} className={styles.featureIcon} />
           <h4>Acompanhamento</h4>
           <p>Veja evolução e dicas ao longo do tempo.</p>
-        </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

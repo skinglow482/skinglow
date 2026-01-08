@@ -31,5 +31,12 @@
 .options {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
+
+/* Forçar botões a preencherem a largura disponível em mobile */
+.options :global(.button) {
+  width: 100%;
+  padding: 14px 12px;
+  text-transform: capitalize;
+} 

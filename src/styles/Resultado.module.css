@@ -32,10 +32,25 @@
   vertical-align: top;
 }
 
+.row {
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.row:hover {
+  transform: translateY(-4px);
+  background: rgba(250,128,114,0.02);
+}
+
 .stepCell {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .routineTable tr {
+    padding: 14px;
+  }
 }
 
 .stepIcon {
