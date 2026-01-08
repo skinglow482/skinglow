@@ -5,6 +5,8 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
+import heroLogin from '../assets/login-illustration.svg';
+import { FiUser } from 'react-icons/fi';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +31,8 @@ const Login = () => {
   return (
     <div className={styles.auth}>
       <Card>
-        <h2>Login</h2>
+        <img src={heroLogin} alt="Login" className={styles.authHero} />
+        <h2><FiUser style={{ verticalAlign: 'middle', marginRight: 8 }} />Login</h2>
         <form onSubmit={handleSubmit}>
           <Input
             type="email"

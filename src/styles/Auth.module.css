@@ -3,7 +3,14 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #fce4ec;
+  background-color: var(--color-salmon-light);
+}
+
+.authHero {
+  width: 260px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 12px;
 }
 
 .error {

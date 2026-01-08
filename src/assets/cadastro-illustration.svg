@@ -1,0 +1,8 @@
+<svg width="400" height="220" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="220" rx="16" fill="#fff0ee"/>
+  <g transform="translate(24,24)">
+    <circle cx="320" cy="60" r="40" fill="#fa8072" opacity="0.12" />
+    <rect x="28" y="28" width="120" height="100" rx="12" fill="#fa8072" opacity="0.06" />
+    <text x="16" y="150" fill="#c75a47" font-size="20" font-family="Arial, sans-serif">Cadastre-se</text>
+  </g>
+</svg>

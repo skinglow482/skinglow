@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { analyzeSkinType } from '../utils/skinAnalysis';
 import { routines } from '../data/routines';
 import { products } from '../data/products';
 import Card from '../components/Card';
 import styles from '../styles/Resultado.module.css';
 import hero from '../assets/hero-salmon.svg';
+import { FiFilter, FiPlusCircle, FiDroplet, FiSun } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const Resultado = () => {
   const [skinType, setSkinType] = useState('');
@@ -32,15 +34,69 @@ const Resultado = () => {
     ));
   };
 
+  const icons = {
+    limpeza: <FiFilter size={18} />, 
+    tratamento: <FiPlusCircle size={18} />, 
+    hidratacao: <FiDroplet size={18} />, 
+    protecaoSolar: <FiSun size={18} />
+  };
+
+  const steps = React.useMemo(() => {
+    const m = new Set([...(routine.manha || []), ...(routine.noite || [])]);
+    return Array.from(m);
+  }, [routine]);
+
   return (
     <div className={styles.resultado}>
       <Card image={hero}>
-        <h2>Seu Tipo de Pele: {skinType}</h2>
-        <p>Baseado nas suas respostas, recomendamos a seguinte rotina:</p>
-        <h3>Manhã</h3>
-        {renderRoutine('manha')}
-        <h3>Noite</h3>
-        {renderRoutine('noite')}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+          <h2>Seu Tipo de Pele: {skinType}</h2>
+          <p>Baseado nas suas respostas, recomendamos a seguinte rotina:</p>
+
+          <div className={styles.tableWrap}>
+            <table className={styles.routineTable}>
+              <thead>
+                <tr>
+                  <th>Etapa</th>
+                  <th>Manhã</th>
+                  <th>Noite</th>
+                </tr>
+              </thead>
+              <tbody>
+                {steps.map((step) => (
+                  <tr key={step} className={styles.row}>
+                    <td className={styles.stepCell}>
+                      <span className={styles.stepIcon}>{icons[step]}</span>
+                      <span className={styles.stepLabel}>{step.charAt(0).toUpperCase() + step.slice(1)}</span>
+                    </td>
+                    <td>
+                      {(routine.manha || []).includes(step) ? (
+                        <ul className={styles.productList}>
+                          {products[step]?.map((p, idx) => (
+                            <li key={idx}><strong>{p.name}</strong> <small>– {p.brand}</small></li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <span className={styles.notApplied}>—</span>
+                      )}
+                    </td>
+                    <td>
+                      {(routine.noite || []).includes(step) ? (
+                        <ul className={styles.productList}>
+                          {products[step]?.map((p, idx) => (
+                            <li key={idx}><strong>{p.name}</strong> <small>– {p.brand}</small></li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <span className={styles.notApplied}>—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
       </Card>
     </div>
   );

@@ -6,6 +6,13 @@
   background-color: var(--color-salmon-light);
 }
 
+.questionHero {
+  width: 320px;
+  max-width: 90%;
+  display: block;
+  margin: 0 auto 12px;
+}
+
 .progress {
   width: 100%;
   height: 10px;

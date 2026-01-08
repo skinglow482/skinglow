@@ -3,3 +3,99 @@
   background-color: var(--color-salmon-light);
   min-height: 100vh;
 }
+
+.tableWrap {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.routineTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(180deg, rgba(250,128,114,0.04), rgba(255,255,255,0));
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.routineTable thead th {
+  text-align: left;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, var(--color-salmon-light), rgba(250,128,114,0.06));
+  color: var(--color-salmon-dark);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.routineTable tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  vertical-align: top;
+}
+
+.stepCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepIcon {
+  color: var(--color-salmon);
+  background: rgba(250,128,114,0.06);
+  padding: 6px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.productList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.prodIcon {
+  color: var(--color-salmon);
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+}
+
+.notApplied {
+  color: #999;
+}
+
+@media (max-width: 640px) {
+  .routineTable thead {
+    display: none;
+  }
+  .routineTable, .routineTable tbody, .routineTable tr, .routineTable td {
+    display: block;
+    width: 100%;
+  }
+  .routineTable tr {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    padding: 12px;
+  }
+  .routineTable td {
+    padding: 8px 0;
+    border: none;
+  }
+  .routineTable td:first-child {
+    margin-bottom: 8px;
+  }
+}

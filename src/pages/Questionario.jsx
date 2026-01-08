@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Questionario.module.css';
+import heroQuestion from '../assets/question-illustration.svg';
+import { FiClipboard } from 'react-icons/fi';
 
 const questions = [
   { key: 'tipoPele', question: 'Qual é o seu tipo de pele?', options: ['seca', 'oleosa', 'mista', 'sensivel'] },
@@ -34,10 +36,11 @@ const Questionario = () => {
   return (
     <div className={styles.questionario}>
       <Card>
+        <img src={heroQuestion} alt="Questionário" className={styles.questionHero} />
         <div className={styles.progress}>
           <div className={styles.bar} style={{ width: `${progress}%` }}></div>
         </div>
-        <h2>{questions[currentStep].question}</h2>
+        <h2><FiClipboard style={{ verticalAlign: 'middle', marginRight: 8 }} />{questions[currentStep].question}</h2>
         <div className={styles.options}>
           {questions[currentStep].options.map((option) => (
             <Button key={option} onClick={() => handleAnswer(option)}>
