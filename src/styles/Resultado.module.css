@@ -1,5 +1,5 @@
 .resultado {
   padding: 50px;
-  background-color: #fce4ec;
+  background-color: var(--color-salmon-light);
   min-height: 100vh;
 }

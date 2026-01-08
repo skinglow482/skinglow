@@ -4,6 +4,7 @@ import { routines } from '../data/routines';
 import { products } from '../data/products';
 import Card from '../components/Card';
 import styles from '../styles/Resultado.module.css';
+import hero from '../assets/hero-salmon.svg';
 
 const Resultado = () => {
   const [skinType, setSkinType] = useState('');
@@ -33,7 +34,7 @@ const Resultado = () => {
 
   return (
     <div className={styles.resultado}>
-      <Card>
+      <Card image={hero}>
         <h2>Seu Tipo de Pele: {skinType}</h2>
         <p>Baseado nas suas respostas, recomendamos a seguinte rotina:</p>
         <h3>Manhã</h3>

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import styles from '../styles/Home.module.css';
+import hero from '../assets/hero-salmon.svg';
+import { FiChevronRight } from 'react-icons/fi';
 
 const Home = () => {
   return (
@@ -11,6 +13,7 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
+      <img src={hero} alt="SkinGlow" className={styles.hero} />
       <motion.h1
         initial={{ y: -50 }}
         animate={{ y: 0 }}
@@ -39,10 +42,10 @@ const Home = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <Link to="/login">
-          <Button>Login</Button>
+          <Button>Login <FiChevronRight className={styles.icon} /></Button>
         </Link>
         <Link to="/cadastro">
-          <Button>Criar Conta</Button>
+          <Button>Criar Conta <FiChevronRight className={styles.icon} /></Button>
         </Link>
       </motion.div>
     </motion.div>
