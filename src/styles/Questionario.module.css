@@ -3,7 +3,14 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #fce4ec;
+  background-color: var(--color-salmon-light);
+}
+
+.questionHero {
+  width: 320px;
+  max-width: 90%;
+  display: block;
+  margin: 0 auto 12px;
 }
 
 .progress {
@@ -16,7 +23,7 @@
 
 .bar {
   height: 100%;
-  background-color: #f8bbd9;
+  background-color: var(--color-salmon);
   border-radius: 5px;
   transition: width 0.3s;
 }
@@ -24,5 +31,12 @@
 .options {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
+
+/* Forçar botões a preencherem a largura disponível em mobile */
+.options :global(.button) {
+  width: 100%;
+  padding: 14px 12px;
+  text-transform: capitalize;
+} 

@@ -5,6 +5,10 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
+import CadastroIllustration from '../components/illustrations/CadastroIllustration';
+import ThemeToggle from '../components/ThemeToggle';
+import { FiUserPlus } from 'react-icons/fi';
+import { supabase } from '../services/supabase.js';
 
 const Cadastro = () => {
   const [email, setEmail] = useState('');
@@ -14,26 +18,40 @@ const Cadastro = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email || !password || !confirmPassword) {
-      setError('Preencha todos os campos.');
-      return;
-    }
-    if (password !== confirmPassword) {
-      setError('Senhas não coincidem.');
-      return;
-    }
-    // Simulação de cadastro
-    login(email, password);
-    navigate('/questionario');
-  };
+ const handleRegister = async (e) => {
+  e.preventDefault();
+  setError("");
+
+  if (password !== confirmPassword) {
+    setError("As senhas não coincidem");
+    return;
+  }
+
+  console.log("Tentando cadastrar:", email);
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  });
+
+  if (error) {
+    console.error("Erro do Supabase:", error);
+    setError(error.message);
+    return;
+  }
+
+  console.log("Cadastro feito com sucesso:", data);
+  alert("Cadastro realizado com sucesso!");
+  navigate('/login');
+};
 
   return (
     <div className={styles.auth}>
       <Card>
-        <h2>Criar Conta</h2>
-        <form onSubmit={handleSubmit}>
+        <CadastroIllustration className={styles.authHero} />
+        <h2><FiUserPlus style={{ verticalAlign: 'middle', marginRight: 8 }} />Criar Conta</h2>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}><ThemeToggle /></div>
+        <form onSubmit={handleRegister}>
           <Input
             type="email"
             placeholder="E-mail"

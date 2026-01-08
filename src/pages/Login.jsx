@@ -5,6 +5,10 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import styles from '../styles/Auth.module.css';
+import LoginIllustration from '../components/illustrations/LoginIllustration';
+import ThemeToggle from '../components/ThemeToggle';
+import { FiUser } from 'react-icons/fi';
+import { supabase } from '../services/supabase'
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,24 +17,29 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email || !password) {
-      setError('Preencha todos os campos.');
-      return;
-    }
-    if (login(email, password)) {
-      navigate('/questionario');
-    } else {
-      setError('Credenciais inválidas.');
-    }
-  };
+const handleLoginSupabase = async (e) => {
+  e.preventDefault();
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    setError(error.message);
+    return;
+  }
+
+  navigate('/questionario');
+};
 
   return (
     <div className={styles.auth}>
       <Card>
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
+        <LoginIllustration className={styles.authHero} />
+        <h2><FiUser style={{ verticalAlign: 'middle', marginRight: 8 }} />Login</h2>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}><ThemeToggle /></div>
+        <form onSubmit={handleLoginSupabase}>
           <Input
             type="email"
             placeholder="E-mail"
