@@ -40,4 +40,10 @@ Um aplicativo web moderno e feminino para auxiliar mulheres no cuidado com a pel
 - Os arquivos SVG originais foram movidos para **`src/assets/legacy/`** como backup.
 - Adicionei ícones com `react-icons` e melhorei transições/hover com `framer-motion` e CSS.
 
+## Acessibilidade / Contraste
+
+- Ajustei a paleta para melhorar contraste WCAG: `--color-salmon-dark` foi escurecida e agora **passa** os requisitos AA (4.5:1) para texto normal em fundos claros.
+- Botões agora usam `--color-on-salmon` (texto escuro) para garantir legibilidade sobre o fundo salmão.
+- Há um script de verificação simples em `scripts/contrast-check.js` que você pode rodar localmente para validar combinações de cores.
+
 > Observação: se for trabalhar nas ilustrações, prefira editar os componentes em `src/components/illustrations/` para manter a consistência com o projeto.

@@ -4,7 +4,8 @@
   font-weight: 400;
   --color-salmon: #fa8072; /* Salmão */
   --color-salmon-light: #fff0ee; /* Salmão claro */
-  --color-salmon-dark: #c75a47; /* Salmão escuro */
+  --color-salmon-dark: #8f3b2e; /* Salmão escuro (ajustado para contraste) */
+  --color-on-salmon: #2b1b17; /* Texto escuro usado sobre botões salmão */
   color: var(--color-salmon-dark);
   background-color: var(--color-salmon-light);
 }
@@ -19,12 +20,12 @@ h1, h2, h3 {
 }
 
 a {
-  color: var(--color-salmon);
+  color: var(--color-salmon-dark);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-salmon-dark);
+  color: var(--color-salmon);
 }
 }
 button:focus,
