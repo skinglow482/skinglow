@@ -32,3 +32,12 @@ Um aplicativo web moderno e feminino para auxiliar mulheres no cuidado com a pel
 - `src/data/`: Dados simulados
 - `src/utils/`: Funções utilitárias
 - `src/context/`: Contextos para estado global
+
+## Notas de Design (últimas alterações)
+
+- Substituí as cores roxo/lilás pela paleta **salmão** usando variáveis CSS (`--color-salmon`, `--color-salmon-light`, `--color-salmon-dark`).
+- Convertemos ilustrações SVG para **componentes React inline** (em `src/components/illustrations/`) para melhorar carregamento, acessibilidade e permitir estilização direta.
+- Os arquivos SVG originais foram movidos para **`src/assets/legacy/`** como backup.
+- Adicionei ícones com `react-icons` e melhorei transições/hover com `framer-motion` e CSS.
+
+> Observação: se for trabalhar nas ilustrações, prefira editar os componentes em `src/components/illustrations/` para manter a consistência com o projeto.
